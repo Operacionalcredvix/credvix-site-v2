@@ -1,0 +1,27 @@
+CREDVIX V2 — ETAPA 06 | RELAÇÕES INSTITUCIONAIS
+
+Este pacote contém APENAS as alterações necessárias para esta etapa.
+Não modifica o Header, o Footer ou outras páginas.
+
+INSTALAÇÃO
+1. Extraia o conteúdo deste ZIP na raiz da pasta credvix-site-v2.
+2. Confirme a substituição de src/pages/HomePage.tsx.
+3. Execute npm run dev. Não há novas bibliotecas a instalar.
+4. Para validar localmente: npm run typecheck e npm run build.
+
+SEÇÃO IMPLEMENTADA
+- Título: CONEXÕES PRESENTES NA NOSSA HISTÓRIA.
+- Três cards com os SVGs originais: Help!, Banco BMG e Apis Group.
+- Fundo branco após a seção Valores (fundo quente), criando alternância.
+- Margem global .cvx-shell idêntica à Hero.
+- Responsividade em desktop, tablet e mobile.
+
+ARQUIVOS
+ - src/components/home/InstitutionalConnections.tsx
+ - src/components/home/InstitutionalConnections.module.css
+ - src/pages/HomePage.tsx
+ - public/instituicoes/help.svg
+ - public/instituicoes/banco-bmg.svg
+ - public/instituicoes/apis-group.svg
+
+Cópias das imagens embutidas nos SVGs permanecem nos arquivos originais.

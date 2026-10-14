@@ -1,0 +1,17 @@
+CREDVIX V2 - PATCH DA SECAO SOLUCOES (FOTO + CARDS)
+
+ATENCAO: altera SOMENTE src/components/home/SolutionsSection.module.css.
+Nao altera Hero, Header, Footer, nem as outras secoes.
+
+Alteracoes:
+- .showcase com max-width: 1060px (120px a menos que a shell de 1180px) e margin centralizada.
+- .photoFrame mais alto em desktops: clamp(480px, 38vw, 565px).
+- Em notebooks com altura <=800px, altura ajustada para clamp(390px, 51vh, 440px).
+- O enquadramento, cards e CTA existentes foram preservados.
+
+INSTALACAO
+1. Extraia o ZIP na raiz do projeto credvix-site-v2, substituindo o arquivo indicado.
+2. No VS Code, execute npm run dev.
+3. Revise no navegador em telas de notebook, desktop e mobile.
+
+Para desfazer, restaure somente este CSS pela versao anterior via Git ou backup.

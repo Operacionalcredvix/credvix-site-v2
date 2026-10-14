@@ -7,16 +7,23 @@
 :root {
   --cvx-brand-500: #f27010;
   --cvx-brand-700: #c94f08;
+  --cvx-brand-amber: #f99503;
   --cvx-ink: #171411;
+  --cvx-neutral-100: #f6f4f1;
+  --cvx-neutral-300: #ded5cf;
   --cvx-neutral-600: #5b514b;
   --cvx-paper: #faf9f8;
   --cvx-surface: #ffffff;
   --cvx-border: #eee8e3;
+  --cvx-shell-max: 1180px;
+  --cvx-shell-gutter: 32px;
 }
+
 
 @theme inline {
   --color-brand: var(--cvx-brand-500);
   --color-action: var(--cvx-brand-700);
+  --color-accent: var(--cvx-brand-amber);
   --color-ink: var(--cvx-ink);
   --color-muted: var(--cvx-neutral-600);
   --color-paper: var(--cvx-paper);
@@ -50,10 +57,22 @@
   }
 }
 
+
+@layer components {
+  .cvx-shell {
+    width: min(calc(100% - (var(--cvx-shell-gutter) * 2)), var(--cvx-shell-max));
+    margin-inline: auto;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+@media (max-width: 600px) {
+  :root { --cvx-shell-gutter: 20px; }
 }
