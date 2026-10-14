@@ -4,7 +4,7 @@ import styles from './Hero.module.css'
 
 /**
  * Etapa 02: Hero exclusiva da Home.
- * A marca-modelo e um SVG original enviado pelo time Credvix.
+ * A marca-modelo e um fundo decorativo exclusivamente desktop, via CSS.
  * O Header e o Footer permanecem compartilhados com as demais rotas.
  */
 export function Hero() {
@@ -14,11 +14,11 @@ export function Hero() {
         <div className={styles.container}>
           <div className={styles.content}>
             <h1 id="home-hero-title" className={styles.title}>
-              <span>CRÉDITO</span>
+              <span>CRÉDITO COM</span>
               <span>
-                MAIS <strong>PRÓXIMO</strong>
+                MAIS <strong>PROXIMIDADE.</strong>
               </span>
-              <span>DE VOCÊ.</span>
+              <span>MAIS VOCÊ.</span>
             </h1>
 
             <p className={styles.description}>
@@ -36,17 +36,6 @@ export function Hero() {
               </p>
             </div>
           </div>
-
-          <img
-            className={styles.artwork}
-            src="/home/marca-modelo.svg"
-            alt="Colaboradora da Credvix sorrindo, diante dos grafismos laranja da marca."
-            width={691}
-            height={703}
-            loading="eager"
-            decoding="async"
-            fetchPriority="high"
-          />
         </div>
       </div>
     </section>

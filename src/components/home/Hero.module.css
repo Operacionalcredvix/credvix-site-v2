@@ -1,6 +1,7 @@
-/* Hero da Home, baseada no layout do Figma: tipografia forte a esquerda,
- * arte SVG original ancorada na direita e CTA da biblioteca compartilhada.
- * Usar viewport como referencia, sem altura rigida de 900px.
+/* Hero exclusiva da Home.
+ * A arte da modelo agora e uma camada de background, limitada ao lado direito.
+ * O texto ocupa uma area reservada do lado esquerdo: a arte nunca passa por tras dele.
+ * A largura externa continua sendo definida pela .cvx-shell global.
  */
 .hero {
   position: relative;
@@ -18,10 +19,31 @@
   margin-inline: auto;
 }
 
+/* Imagem de fundo decorativa, sem <img> ocupando espaco no layout.
+ * background-size: contain adapta a arte ao ESPACO e a ALTURA da Hero,
+ * sem distorcer nem invadir a metade destinada ao letreiro.
+ */
+.container::before {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 49%;
+  background-image: url('/home/marca-modelo.svg');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: contain;
+  content: '';
+  pointer-events: none;
+}
+
 .content {
   position: relative;
   z-index: 1;
-  width: min(100%, 660px);
+  flex: 0 0 51%;
+  max-width: 51%;
+  min-width: 0;
   padding-block: 72px 98px;
 }
 
@@ -29,7 +51,7 @@
   margin: 0;
   color: var(--cvx-ink);
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(43px, 4.15vw, 66px);
+  font-size: clamp(44px, 3.8vw, 54px);
   font-weight: 800;
   line-height: 1.035;
   letter-spacing: -0.073em;
@@ -80,102 +102,61 @@
   color: var(--cvx-brand-amber);
 }
 
-.artwork {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: 0;
-  display: block;
-  width: min(48.5%, 620px);
-  height: auto;
-  max-height: calc(100svh - 104px);
-  object-fit: contain;
-  object-position: bottom right;
-  user-select: none;
-  pointer-events: none;
-}
-
 @media (min-width: 1600px) {
   .container {
-    width: 100%;
     min-height: clamp(650px, calc(100svh - 104px), 820px);
-  }
-
-  .artwork {
-    width: min(49%, 660px);
-  }
-
-  .content {
-    width: min(100%, 695px);
   }
 }
 
 @media (min-width: 901px) and (max-width: 1180px) {
-  .content {
-    width: 60%;
-  }
-
   .title {
-    font-size: clamp(39px, 4.2vw, 49px);
+    font-size: clamp(36px, 3.7vw, 45px);
   }
 
   .description {
     max-width: 405px;
     font-size: 14px;
   }
-
-  .artwork {
-    width: min(47%, 510px);
-  }
 }
 
-/* Abaixo de 900px: a composicao vira coluna, sem cortar a modelo. */
-@media (max-width: 900px) {
+/* Tablet/mobile: removemos por completo a ilustracao do background.
+ * A Hero vira uma secao apenas tipografica, sem area vazia reservada a arte.
+ */
+@media (max-width: 1140px) {
   .container {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
     min-height: 0;
   }
 
+  .container::before {
+    display: none;
+  }
+
   .content {
-    width: 100%;
-    padding-block: 62px 12px;
+    flex-basis: 100%;
+    max-width: 100%;
+    padding-block: 62px 72px;
   }
 
   .title {
+    max-width: 710px;
     font-size: clamp(38px, 6.3vw, 59px);
   }
 
   .description {
     max-width: 590px;
   }
-
-  .artwork {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    width: min(86%, 570px);
-    height: auto;
-    max-height: none;
-    margin: 32px auto 0;
-  }
 }
 
 @media (max-width: 600px) {
-  .container {
-    width: 100%;
-  }
-
   .content {
-    padding-block: 47px 0;
+    padding-block: 47px 65px;
   }
 
   .title {
-    font-size: clamp(34px, 9.2vw, 49px);
+    font-size: clamp(30px, 8.2vw, 48px);
     line-height: 1.075;
     letter-spacing: -0.065em;
+    overflow-wrap: anywhere;
   }
 
   .description {
@@ -191,10 +172,5 @@
 
   .hint {
     font-size: 12px;
-  }
-
-  .artwork {
-    width: min(100%, 480px);
-    margin-top: 33px;
   }
 }
