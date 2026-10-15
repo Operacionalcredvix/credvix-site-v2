@@ -1,0 +1,32 @@
+CREDVIX V2 — PATCH LOCALIZADOR DE LOJAS
+
+1. Extraia este ZIP sobre a pasta raiz do projeto credvix-site-v2.
+2. Aceite substituir src/pages/LojasPage.tsx. Os demais arquivos de codigo sao novos.
+3. Mantenha instalado o patch anterior da Hero de Lojas.
+4. Execute npm run dev e abra /lojas.
+5. Confira em npm run typecheck e npm run build antes do commit.
+
+Comportamento:
+- Estado inicial: busca vazia e painel de instrucao, sem cards.
+- Ao escolher um estado ou digitar nome/cidade/endereco: cards surgem automaticamente.
+- Ao clicar em Ver todas as lojas: todas as 34 unidades aparecem.
+- Botao Limpar filtros retorna ao estado inicial.
+- 3 cards por linha no desktop; 2 em telas medias; 1 no mobile.
+- Cada card usa endereco, telefone, WhatsApp, Instagram e horario cadastrado.
+
+FONTES: Horário de funcionamento LOJAS.xlsx e CONTATOS LOJAS_2025.xlsx,
+fornecidos como anexos do Google Drive nesta conversa.
+Esta e uma extracao ESTATICA. Atualizar as planilhas nao atualiza o site automaticamente.
+Futuramente, e possivel integrar a lista ao Supabase, como ocorria no legado.
+
+PENDENCIAS DE DADOS ANTES DO LANCAMENTO:
+- Horario da unidade Vitoria (Santa Lucia) nao associado: a planilha de horarios
+  indica 'Vitoria - Praia do Canto', que nao e comprovadamente a mesma unidade.
+- Endereco da unidade Varzea Grande tem UF -ES no texto da planilha de contatos,
+  embora a unidade esteja marcada como MT. Validar e corrigir na fonte.
+- A planilha de horarios informa faixas horarias, mas NAO os dias da semana.
+  Portanto, nao afirmamos 'Aberto agora', nem horario de sabados/feriados.
+- Confirmar que todos os 34 enderecos e numeros ainda estao ativos antes de publicar.
+
+Nao incluidos: telefones de supervisores, coordenadores, emails internos e
+informacoes de regional. Nao foram alterados Home, Header, Footer ou Hero de Lojas.

@@ -1,13 +1,19 @@
-import { PageScaffold } from '../components/layout/PageScaffold'
+import { VagasHero } from '../components/vagas/VagasHero'
+import { VagasLocator } from '../components/vagas/VagasLocator'
+import { VagasCtaBanner } from '../components/vagas/VagasCtaBanner'
 import { usePageMetadata } from '../hooks/usePageMetadata'
 
 export default function VagasPage() {
-  usePageMetadata('Vagas', 'Confira oportunidades de carreira na Credvix.')
+  usePageMetadata(
+    'Vagas',
+    'Seu talento. Nossa próxima conquista. Conheça as oportunidades de carreira da Credvix.',
+  )
+
   return (
-    <PageScaffold
-      eyebrow="Carreiras"
-      title="Vagas"
-      description="Rota preparada para vagas e candidaturas; o envio de curriculos so sera ativado apos validar o fluxo e o armazenamento."
-    />
+    <>
+      <VagasHero />
+      <VagasLocator />
+      <VagasCtaBanner />
+    </>
   )
 }

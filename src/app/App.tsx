@@ -27,6 +27,8 @@ export default function App() {
           <Route path="/lojas" element={<LojasPage />} />
           <Route path="/vagas" element={<VagasPage />} />
           <Route path="/canal-de-integridade" element={<CanalIntegridadePage />} />
+          {/* Acompanhamento desativado temporariamente. */}
+          <Route path="/canal-de-integridade/acompanhar" element={<Navigate to="/canal-de-integridade" replace />} />
           {/* Compatibilidade de navegacao interna; 301 HTTP sera definida no lancamento. */}
           <Route path="/index.html" element={<Navigate to="/" replace />} />
           <Route path="/lojas.html" element={<Navigate to="/lojas" replace />} />
